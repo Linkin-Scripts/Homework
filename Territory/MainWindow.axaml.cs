@@ -288,26 +288,26 @@ public partial class MainWindow : Window, System.ComponentModel.INotifyPropertyC
                 SetStatus("Saved board size out of allowed range (4-10).");
                 return;
             }
-            if (players < 2 || players > 8)
-            {
-                SetStatus("Saved player count out of allowed range (2-8).");
-                return;
-            }
 
-            var tokens = lines[1].Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            var tokens = lines[2].Split(' ', StringSplitOptions.RemoveEmptyEntries);
             if (tokens.Length != rows * cols)
                 return;
 
             Rows = rows;
             Columns = cols;
-            PlayerCount = players;
             // parse players line if present
             if (lines.Length >= 3)
             {
                 var playerLine = lines[1];
                 var tokensP = playerLine.Split('|', StringSplitOptions.RemoveEmptyEntries);
+                if (players < 2 || players > 8)
+                {
+                    SetStatus("Saved player count out of allowed range (2-8).");
+                    return;
+                }
+                PlayerCount = players;
                 var list = new List<Player>();
-                for (int i = 0; i < tokensP.Length && list.Count < players; i++)
+                for (int i = 0; i < tokensP.Length; i++)
                 {
                     var parts = tokensP[i].Split(',', 2);
                     var name = parts.Length > 0 ? parts[0] : $"Player {i+1}";
