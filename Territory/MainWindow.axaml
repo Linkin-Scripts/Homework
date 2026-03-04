@@ -22,12 +22,18 @@
                         <Setter Property="Foreground" Value="#1A1A1A"/>
                         <Setter Property="BorderBrush" Value="#3A3A3A"/>
                         <Setter Property="CaretBrush" Value="#1A1A1A"/>
-                </Style>
-                <Style Selector="TextBox:focus">
-                        <Setter Property="Background" Value="#FFFFFF"/>
-                        <Setter Property="Foreground" Value="#1A1A1A"/>
-                        <Setter Property="BorderBrush" Value="#1A7F3A"/>
-                        <Setter Property="CaretBrush" Value="#1A1A1A"/>
+                        <Style Selector="^:focus">
+                                <Setter Property="Background" Value="#FFFFFF"/>
+                                <Setter Property="Foreground" Value="#FFFFFF"/>
+                                <Setter Property="BorderBrush" Value="#1A7F3A"/>
+                                <Setter Property="CaretBrush" Value="#1A1A1A"/>
+                        </Style>
+                        <Style Selector="^:pointerover">
+                                <Setter Property="Background" Value="#FFFFFF"/>
+                                <Setter Property="Foreground" Value="#FFFFFF"/>
+                                <Setter Property="BorderBrush" Value="#3A3A3A"/>
+                                <Setter Property="CaretBrush" Value="#1A1A1A"/>
+                        </Style>
                 </Style>
         </Window.Styles>
 
@@ -50,11 +56,11 @@
                                         <StackPanel Spacing="12">
                                                 <StackPanel Orientation="Horizontal" Spacing="12">
                                                         <TextBlock VerticalAlignment="Center" Width="70" Text="Rows:" FontSize="12" Foreground="#CCCCCC"/>
-                                                        <TextBox Name="RowsBox" Width="50" Text="{Binding Rows, Mode=TwoWay}" Padding="8,6" Foreground="#1A1A1A" Background="#FFFFFF" FontSize="12" BorderBrush="#3A3A3A" BorderThickness="1"/>
+                                                        <TextBox Name="RowsBox" Width="50" Text="{Binding Rows, Mode=TwoWay}" Padding="8,6" FontSize="12" BorderThickness="1"/>
                                                 </StackPanel>
                                                 <StackPanel Orientation="Horizontal" Spacing="12">
                                                         <TextBlock VerticalAlignment="Center" Width="70" Text="Columns:" FontSize="12" Foreground="#CCCCCC"/>
-                                                        <TextBox Name="ColsBox" Width="50" Text="{Binding Columns, Mode=TwoWay}" Padding="8,6" Foreground="#1A1A1A" Background="#FFFFFF" FontSize="12" BorderBrush="#3A3A3A" BorderThickness="1"/>
+                                                        <TextBox Name="ColsBox" Width="50" Text="{Binding Columns, Mode=TwoWay}" Padding="8,6" FontSize="12" BorderThickness="1"/>
                                                 </StackPanel>
                                                 <StackPanel Orientation="Horizontal" Spacing="12">
                                                         <TextBlock VerticalAlignment="Center" Width="70" Text="Players:" FontSize="12" Foreground="#CCCCCC"/>
